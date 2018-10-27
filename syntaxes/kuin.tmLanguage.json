@@ -9,7 +9,16 @@
 			"include": "#strings"
 		},
 		{
-			"include": "#var_declaration"
+			"include": "#classes"
+		},
+		{
+			"include": "#vars_declaration"
+		},
+		{
+			"include": "#func"
+		},
+		{
+			"include": "#do_statement"
 		},
 		{
 			"include": "#keywords"
@@ -19,40 +28,113 @@
 		"comments": {
 			"patterns": [
 				{
+					"comment": "一行コメントは;で始まります",
 					"name": "comment.line",
-					"match": ";.*",
-					"comment": "一行コメントは;で始まります"
+					"match": ";.*"
 				},
 				{
+					"comment": "複数行コメントは{}です",
 					"name": "comment.block",
 					"begin": "{",
-					"end": "}",
-					"comment": "複数行コメントは{}です"
+					"end": "}"
+				}
+			]
+		},
+		"strings": {
+			"comment": "文字列です",
+			"name": "string.quoted.double.kuin",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.kuin",
+					"match": "\\\\."
+				}
+			]
+		},
+		"classes": {
+			"patterns": [
+				{
+					"comment": "クラス定義です",
+					"match": "(class)\\s+([0-9a-zA-Z_]+)\\s*\\(([0-9a-zA-Z@_]+)\\)",
+					"captures": {
+						"1": {
+							"name": "keyword.other"
+						},
+						"2": {
+							"name": "entity.name.class"
+						},
+						"3": {
+							"name": "entity.other.inherited-class"
+						}
+					}
+				},
+				{
+					"comment": "クラス定義の終わりです",
+					"name": "keyword.other",
+					"match": "end class"
 				}
 			]
 		},
 		"var_declaration": {
-            "patterns": [
-                {
-                    "match": "(\\S+)\\s+(\\S+):\\s+(\\S+)",
-                    "captures": {
-                        "1": {"patterns": [{ 
-								"name": "keyword.control",
-								"match": "var"
-						}]},
-                        "2": {"patterns": [{
-							"name": "variable.name",
-							"match": "[0-9a-zA-Z_]+"
-						}]},
-                        "3": {"patterns": [{
-							"name": "storage.type",
-							"match": "[0-9a-zA-Z@_]+"
-						}]}
-                    }
-                }
+			"patterns": [
+				{
+					"comment": "変数定義です",
+                    "match": "(var)\\s+([0-9a-zA-Z_]+)\\s*:\\s+([0-9a-zA-Z@_]+)\\s*(::)?\\s*([0-9a-zA-Z#@_]+)?",
+					"captures": {
+						"1": {
+							"name": "keyword.other"
+						},
+						"2": {
+							"name": "variable.name"
+						},
+						"3": {
+							"name": "storage.type"
+						},
+						"5": {
+							"name": "constant.other"
+						}
+					}
+				}
 			]
 		},
+		"func": {
+			"patterns": [
+				{
+					"comment": "関数定義です",
+					"match": "(func)\\s+([0-9a-zA-Z_]+)",
+					"captures": {
+						"1": {
+							"name": "keyword.other"
+						},
+						"2": {
+							"name": "entity.name.class"
+						}
+					}
+				},
+				{
+					"comment": "関数定義の終わりです",
+					"name": "keyword.other",
+					"match": "end func"
+				}
+			]
+		},
+		"do_statement": {
+			"patterns": [
+				{
+					"comment": "実行文章です",
+                    "match": "(do)\\s+",
+					"captures": {
+						"1": {
+							"name": "keyword.control"
+						}
+					}
+				}
+			]
+		},
+	
 
+		
 		"keywords": {
 			"patterns": [
 				{
@@ -66,17 +148,6 @@
 				{
 					"name": "keyword.control.kuin",
 					"match": "\\b(me|null|queue|ret|skip|stack|super|switch|throw|to|true|try|var|while)\\b"
-				}
-			]
-		},
-		"strings": {
-			"name": "string.quoted.double.kuin",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.kuin",
-					"match": "\\\\."
 				}
 			]
 		}
