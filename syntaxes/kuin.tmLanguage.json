@@ -3,18 +3,71 @@
 	"name": "kuin",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#var_declaration"
+		},
+		{
+			"include": "#keywords"
 		}
 	],
 	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": ";.*",
+					"comment": "一行コメントは;で始まります"
+				},
+				{
+					"name": "comment.block",
+					"begin": "{",
+					"end": "}",
+					"comment": "複数行コメントは{}です"
+				}
+			]
+		},
+		"var_declaration": {
+            "patterns": [
+                {
+                    "match": "(\\S+)\\s+(\\S+):\\s+(\\S+)",
+                    "captures": {
+                        "1": {"patterns": [{ 
+								"name": "keyword.control",
+								"match": "var"
+						}]},
+                        "2": {"patterns": [{
+							"name": "variable.name",
+							"match": "[0-9a-zA-Z_]+"
+						}]},
+                        "3": {"patterns": [{
+							"name": "storage.type",
+							"match": "[0-9a-zA-Z@_]+"
+						}]}
+                    }
+                }
+			]
+		},
+
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.kuin",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.kuin",
+					"match": "\\b(alias|assert|bit16|bit32|bit64|bit8|block|bool|break|case|catch|char|class|const)\\b"
+				},
+				{
+					"name": "keyword.control.kuin",
+					"match": "\\b(dbg|default|dict|do|elif|else|end|enum|false|finally|float|for|func|if|include|inf|int|list)\\b"
+				},
+				{
+					"name": "keyword.control.kuin",
+					"match": "\\b(me|null|queue|ret|skip|stack|super|switch|throw|to|true|try|var|while)\\b"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.kuin",
