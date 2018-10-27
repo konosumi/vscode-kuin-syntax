@@ -1,0 +1,26 @@
+{
+    "name": "vscode-kuin-syntax",
+    "displayName": "Kuin syntax",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "konosumi",
+    "engines": {
+        "vscode": "^1.28.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "kuin",
+            "aliases": ["kuin", "kuin"],
+            "extensions": ["kn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "kuin",
+            "scopeName": "source.kuin",
+            "path": "./syntaxes/kuin.tmLanguage.json"
+        }]
+    }
+}
