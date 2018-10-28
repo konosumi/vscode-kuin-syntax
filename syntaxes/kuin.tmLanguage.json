@@ -9,19 +9,10 @@
 			"include": "#strings"
 		},
 		{
-			"include": "#classes"
-		},
-		{
-			"include": "#var_declaration"
-		},
-		{
-			"include": "#func"
-		},
-		{
-			"include": "#do_statement"
-		},
-		{
 			"include": "#keywords"
+		},
+		{
+			"include": "#vars"
 		}
 	],
 	"repository": {
@@ -52,116 +43,37 @@
 				}
 			]
 		},
-		"classes": {
-			"patterns": [
-				{
-					"comment": "クラス定義です",
-					"match": "(class)\\s+([0-9a-zA-Z_]+)\\s*\\(([0-9a-zA-Z@_]+)\\)",
-					"captures": {
-						"1": {
-							"name": "keyword.other"
-						},
-						"2": {
-							"name": "entity.name.class"
-						},
-						"3": {
-							"name": "entity.other.inherited-class"
-						}
-					}
-				},
-				{
-					"comment": "クラス定義の終わりです",
-					"name": "keyword.other",
-					"match": "end class"
-				}
-			]
-		},
-		"var_declaration": {
-			"patterns": [
-				{
-					"comment": "変数定義です",
-                    "match": "(var)\\s+([0-9a-zA-Z_]+)\\s*:\\s+([0-9a-zA-Z@_\\[\\]]+)\\s*(::)?\\s*([0-9a-zA-Z#@_]+)?",
-					"captures": {
-						"1": {
-							"name": "keyword.other"
-						},
-						"2": {
-							"name": "variable.name"
-						},
-						"3": {
-							"name": "entity.name.type"
-						},
-						"5": {
-							"name": "constant.other"
-						}
-					}
-				}
-			]
-		},
-		"func": {
-			"patterns": [
-				{
-					"comment": "関数定義です",
-					"match": "(func)\\s+([0-9a-zA-Z_]+)",
-					"captures": {
-						"1": {
-							"name": "keyword.other"
-						},
-						"2": {
-							"name": "entity.name.class"
-						}
-					}
-				},
-				{
-					"comment": "関数定義の終わりです",
-					"name": "keyword.other",
-					"match": "end func"
-				}
-			]
-		},
-		"types": {
-			"patterns": [
-				{
-					"name": "keyword.control",
-					"2match": "\\b(int|float|char|bool|bit8|bit16|bit32|bit64|[]|list|stack|queue|dict|func|enum|class)\\b",
-					"match": "\\b(int|float|char|bool|bit8|bit16|bit32|bit64|\\[\\]|list|stack|queue|dict|func|enum|class)\\b"
-				}
-			]
-		},
-		"do_statement": {
-			"patterns": [
-				{
-					"comment": "実行文章です",
-                    "match": "(do)\\s+",
-					"captures": {
-						"1": {
-							"name": "keyword.control"
-						}
-					}
-				}
-			]
-		},
-	
-
-		
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.kuin",
-					"match": "\\b(alias|assert|bit16|bit32|bit64|bit8|block|bool|break|case|catch|char|class|const)\\b"
+					"name": "keyword.control",
+					"match": "\\b(alias|assert|block|break|case|catch)\\b"
 				},
 				{
-					"name": "keyword.control.kuin",
-					"match": "\\b(end)\\b"
-				},
-	
-				{
-					"name": "keyword.control.kuin",
-					"match": "\\b(dbg|default|dict|do|elif|else|end|enum|false|finally|float|for|func|if|include|inf|int|list)\\b"
+					"name": "keyword.control",
+					"match": "\\b(class|const|dbg|default|do|elif|else|end|finally)\\b"
 				},
 				{
-					"name": "keyword.control.kuin",
-					"match": "\\b(me|null|queue|ret|skip|stack|super|switch|throw|to|true|try|var|while)\\b"
+					"name": "keyword.control",
+					"match": "\\b(for|func|if|include|inf|ret|skip|stack|switch|throw|to|try|var|while)\\b"
+				},
+				{
+					"name": "keyword.other",
+					"match": "\\b(bit16|bit32|bit64|bit8|bool|char|dict|enum|false|float|int|list|me|null|queue|super|true)\\b"
+				}
+			]
+		},
+		"vars": {
+			"patterns": [
+				{
+					"comment": "%定数です",
+					"name": "constant.other",
+                    "match": "%[0-9a-zA-Z_]+"
+				},
+				{
+					"comment": "変数です",
+					"name": "variable.name",
+                    "match": "[0-9a-zA-Z@_\\[\\]\\.#]+"
 				}
 			]
 		}
