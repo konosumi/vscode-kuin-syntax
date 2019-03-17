@@ -55,5 +55,22 @@
             "end func"
         ],
         "description": "Code snippet for func"
+    },
+    "main and draw control": {
+        "prefix": "maindraw",
+        "body": [
+            "var wndMain: wnd@Wnd",
+            "var drawMain: wnd@Draw",
+            "",
+            "func main()",
+            "    do @wndMain :: wnd@makeWnd(null, %aspect, 1600, 900, window_title)",
+            "    do @drawMain :: wnd@makeDraw(@wndMain, 0, 0, 1600, 900, %scale, %scale, false)",
+            "",
+            "    while(wnd@act())",
+            "        do draw@render(60)",
+            "    end while",
+            "end func"
+        ],
+        "description": "main and draw control"
     }
 }
