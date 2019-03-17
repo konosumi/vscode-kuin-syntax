@@ -34,19 +34,19 @@
 		],
 		"description": "Code snippet for do"
 	},
-	"ret - without return value": {
+	"ret - without a return value": {
 		"prefix": "ret",
 		"body": [
 			"ret"
 		],
-		"description": "Code snippet for ret (without return value)"
+		"description": "Code snippet for ret (without a return value)"
 	},
-	"ret - with return value": {
+	"ret - with a return value": {
 		"prefix": "ret",
 		"body": [
 			"ret ${1:戻り値}"
 		],
-		"description": "Code snippet for ret (with return value)"
+		"description": "Code snippet for ret (with a return value)"
 	},
 	"skip": {
 		"prefix": "skip",
