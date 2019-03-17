@@ -11,7 +11,7 @@
     "do": {
         "prefix": "do",
         "body": [
-            "do ::"
+            "do"
         ],
         "description": "Code snippet for do"
     },
