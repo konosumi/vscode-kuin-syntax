@@ -8,23 +8,39 @@
         "vscode": "^1.28.0"
     },
     "repository": {
-        "type" : "git",
-        "url" : "https://github.com/konosumi/vscode-kuin-syntax.git"
+        "type": "git",
+        "url": "https://github.com/konosumi/vscode-kuin-syntax.git"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "contributes": {
-        "languages": [{
-            "id": "kuin",
-            "aliases": ["kuin", "kuin"],
-            "extensions": ["kn"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "kuin",
-            "scopeName": "source.kuin",
-            "path": "./syntaxes/kuin.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "kuin",
+                "aliases": [
+                    "kuin",
+                    "kuin"
+                ],
+                "extensions": [
+                    "kn"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "kuin",
+                "scopeName": "source.kuin",
+                "path": "./syntaxes/kuin.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "kuin",
+                "path": "./snippets/snippet.json"
+            }
+        ]
     }
 }
