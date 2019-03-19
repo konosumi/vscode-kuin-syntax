@@ -1,59 +1,233 @@
 {
-    "main": {
-        "prefix": "main",
-        "body": [
-            "func main()",
-            "    ; code",
-            "end func"
-        ],
-        "description": "Code snippet for main"
-    },
-    "do": {
-        "prefix": "do",
-        "body": [
-            "do"
-        ],
-        "description": "Code snippet for do"
-    },
-    "while": {
-        "prefix": "while",
-        "body": [
-            "while()",
-            "    ; code",
-            "end while"
-        ],
-        "description": "Code snippet for while loop"
-    },
-    "for": {
-        "prefix": "for",
-        "body": [
-            "for()",
-            "    ; code",
-            "end for"
-        ],
-        "description": "Code snippet for for loop"
-    },
-    "func": {
-        "prefix": "func",
-        "body": [
-            "func",
-            "    ; code",
-            "end func"
-        ],
-        "description": "Code snippet for func"
-    },
-    "main and empty window": {
-        "prefix": "mainwin",
-        "body": [
-            "var wndMain: wnd@Wnd",
-            "",
-            "func main()",
-            "    do @wndMain : : wnd@makeWnd(null, %normal, 800, 450, window_title)",
-            "",
-            "    while(wnd@act())",
-            "    end while",
-            "end func"
-        ],
-        "description": "main and empty window"
-    }
+	"alias": {
+		"prefix": "alias",
+		"body": [
+			"alias ${1:新しい型名}: ${2:既存の型名}"
+		],
+		"description": "Code snippet for alias"
+	},
+	"assert": {
+		"prefix": "assert",
+		"body": [
+			"assert ${1:条件式}"
+		],
+		"description": "Code snippet for assert"
+	},
+	"break": {
+		"prefix": "break",
+		"body": [
+			"break ${1:ブロックの識別子}"
+		],
+		"description": "Code snippet for break"
+	},
+	"const": {
+		"prefix": "const",
+		"body": [
+			"const ${1:定数名}: ${2:型名} :: ${3:値}"
+		],
+		"description": "Code snippet for const"
+	},
+	"do": {
+		"prefix": "do",
+		"body": [
+			"do ${1:式}"
+		],
+		"description": "Code snippet for do"
+	},
+	"ret - without a return value": {
+		"prefix": "ret",
+		"body": [
+			"ret"
+		],
+		"description": "Code snippet for ret (without a return value)"
+	},
+	"ret - with a return value": {
+		"prefix": "ret",
+		"body": [
+			"ret ${1:戻り値}"
+		],
+		"description": "Code snippet for ret (with a return value)"
+	},
+	"skip": {
+		"prefix": "skip",
+		"body": [
+			"skip ${1:ブロックの識別子}"
+		],
+		"description": "Code snippet for skip"
+	},
+	"throw": {
+		"prefix": "throw",
+		"body": [
+			"throw ${1:例外コード}"
+		],
+		"description": "Code snippet for throw"
+	},
+	"var": {
+		"prefix": "var",
+		"body": [
+			"var ${1:変数名}: ${2:型名} :: ${3:初期値}"
+		],
+		"description": "Code snippet for var"
+	},
+	"block": {
+		"prefix": "block",
+		"body": [
+			"block ${1:ブロック名}",
+			"    ${2:処理}",
+			"end block"
+		],
+		"description": "Code snippet for block"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:名前}(${2:継承元クラス名})",
+			"    ${3:メンバ定義}",
+			"end class"
+		],
+		"description": "Code snippet for class"
+	},
+	"enum": {
+		"prefix": "enum",
+		"body": [
+			"enum ${1:名前}",
+			"    ${2:要素名1}",
+			"    ${3:要素名2}",
+			"    ${4:要素名3} :: ${5:要素の値}",
+			"end enum"
+		],
+		"description": "Code snippet for enum"
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for ${1:ブロック名}(${2:初期値}, ${3:終値}, ${4:増減値})",
+			"    ${5:処理}",
+			"end for"
+		],
+		"description": "Code snippet for for loop"
+	},
+	"func - without return value": {
+		"prefix": "func",
+		"body": [
+			"func ${1:関数名}(${2:引数名1}: ${3:型名1}, ${4:引数名2}: ${5:型名2}, ${6:…})",
+			"    ${7:関数の中身}",
+			"end func"
+		],
+		"description": "Code snippet for func - without return value"
+	},
+	"func - with return value": {
+		"prefix": "func",
+		"body": [
+			"func ${1:関数名}(${2:引数名1}: ${3:型名1}, ${4:引数名2}: ${5:型名2}, ${6:…}): ${7:戻り値の型名}",
+			"    ${8:関数の中身}",
+			"end func"
+		],
+		"description": "Code snippet for func - with return value"
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if ${1:ブロック名}(${2:条件})",
+			"    ${3:処理}",
+			"end if"
+		],
+		"description": "Code snippet for if"
+	},
+	"elif": {
+		"prefix": "elif",
+		"body": [
+			"elif(${1:条件})",
+			"    ${2:処理}"
+		],
+		"description": "Code snippet for elif"
+	},
+	"else": {
+		"prefix": "else",
+		"body": [
+			"else",
+			"    ${1:処理}"
+		],
+		"description": "Code snippet for else"
+	},
+	"switch": {
+		"prefix": "switch",
+		"body": [
+			"switch ${1:ブロック名}(${2:比較する値})",
+			"case ${3:値1}",
+			"    ${4:処理}",
+			"case ${5:値2}, ${6:値3}",
+			"    ${7:処理}",
+			"case ${8:値4の下限} to ${9:値4の上限}",
+			"    ${10:処理}",
+			"default",
+			"    ${11:処理}",
+			"end switch"
+		],
+		"description": "Code snippet for swhitch"
+	},
+	"try": {
+		"prefix": "try",
+		"body": [
+			"try ${1:ブロック名}",
+			"    ${2:処理}",
+			"catch ${3:例外コード1}, ${4:例外コード2}",
+			"    ${5:処理}",
+			"case ${6:例外コード下限} to ${7:例外コード上限}",
+			"    ${8:処理}",
+			"finally",
+			"    ${9:処理}",
+			"end try"
+		],
+		"description": "Code snippet for try"
+	},
+	"while": {
+		"prefix": "while",
+		"body": [
+			"while ${1:ブロック名}(${2:条件})",
+			"    ${3:処理}",
+			"end while"
+		],
+		"description": "Code snippet for while loop"
+	},
+	"main": {
+		"prefix": "main",
+		"body": [
+			"func main()",
+			"    ${1:; code}",
+			"end func"
+		],
+		"description": "Code snippet for main"
+	},
+	"main and empty window": {
+		"prefix": "mainwin",
+		"body": [
+			"var wndMain: wnd@Wnd",
+			"",
+			"func main()",
+			"    do @wndMain : : wnd@makeWnd(null, %normal, 800, 450, window_title)",
+			"",
+			"    while(wnd@act())",
+			"    end while",
+			"end func"
+		],
+		"description": "Code snippet for main and empty window"
+	},
+	"main and draw control": {
+		"prefix": "maindraw",
+		"body": [
+			"var wndMain: wnd@Wnd",
+			"var drawMain: wnd@Draw",
+			"",
+			"func main()",
+			"    do @wndMain :: wnd@makeWnd(null, %aspect, 1600, 900, window_title)",
+			"    do @drawMain :: wnd@makeDraw(@wndMain, 0, 0, 1600, 900, %scale, %scale, false)",
+			"",
+			"    while(wnd@act())",
+			"        do draw@render(60)",
+			"    end while",
+			"end func"
+		],
+		"description": "Code snippet for main and draw control"
+	}
 }
