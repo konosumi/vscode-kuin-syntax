@@ -1,82 +1,82 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "kuin",
-	"patterns": [
-		{
-			"include": "#comments"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#vars"
-		}
-	],
-	"repository": {
-		"comments": {
-			"patterns": [
-				{
-					"comment": "一行コメントは;で始まります",
-					"name": "comment.line",
-					"match": ";.*"
-				},
-				{
-					"comment": "複数行コメントは{}です",
-					"name": "comment.block",
-					"begin": "{",
-					"end": "}"
-				}
-			]
-		},
-		"strings": {
-			"comment": "文字列です",
-			"name": "string.quoted.double.kuin",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.kuin",
-					"match": "\\\\."
-				}
-			]
-		},
-		"keywords": {
-			"patterns": [
-				{
-					"name": "keyword.control",
-					"match": "\\b(alias|assert|block|break|case|catch)\\b"
-				},
-				{
-					"name": "keyword.control",
-					"match": "\\b(class|const|dbg|default|do|elif|else|end|finally)\\b"
-				},
-				{
-					"name": "keyword.control",
-					"match": "\\b(for|func|if|include|inf|ret|skip|stack|switch|throw|to|try|var|while)\\b"
-				},
-				{
-					"name": "keyword.other",
-					"match": "\\b(bit16|bit32|bit64|bit8|bool|char|dict|enum|false|float|int|list|me|null|queue|super|true)\\b"
-				}
-			]
-		},
-		"vars": {
-			"patterns": [
-				{
-					"comment": "%定数です",
-					"name": "constant.other",
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "kuin",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#vars"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "comment": "一行コメントは;で始まります",
+                    "name": "comment.line",
+                    "match": ";.*"
+                },
+                {
+                    "comment": "複数行コメントは{}です",
+                    "name": "comment.block",
+                    "begin": "{",
+                    "end": "}"
+                }
+            ]
+        },
+        "strings": {
+            "comment": "文字列です",
+            "name": "string.quoted.double.kuin",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.kuin",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control",
+                    "match": "\\b(alias|assert|block|break|case|catch)\\b"
+                },
+                {
+                    "name": "keyword.control",
+                    "match": "\\b(class|const|dbg|default|do|elif|else|end|finally)\\b"
+                },
+                {
+                    "name": "keyword.control",
+                    "match": "\\b(for|func|if|include|inf|ret|skip|stack|switch|throw|to|try|var|while)\\b"
+                },
+                {
+                    "name": "keyword.other",
+                    "match": "\\b(bit16|bit32|bit64|bit8|bool|char|dict|enum|false|float|int|list|me|null|queue|super|true)\\b"
+                }
+            ]
+        },
+        "vars": {
+            "patterns": [
+                {
+                    "comment": "%定数です",
+                    "name": "constant.other",
                     "match": "%[0-9a-zA-Z_]+"
-				},
-				{
-					"comment": "変数です",
-					"name": "variable.name",
+                },
+                {
+                    "comment": "変数です",
+                    "name": "variable.name",
                     "match": "[0-9a-zA-Z@_\\[\\]\\.#]+"
-				}
-			]
-		}
-	},
-	"scopeName": "source.kuin"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.kuin"
 }
