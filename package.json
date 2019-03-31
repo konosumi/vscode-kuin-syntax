@@ -4,6 +4,7 @@
     "description": "",
     "version": "0.3.0",
     "publisher": "konosumi",
+    "icon": "images/logo_kuin.png",
     "engines": {
         "vscode": "^1.28.0"
     },
