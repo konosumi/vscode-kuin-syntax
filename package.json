@@ -2,7 +2,7 @@
     "name": "vscode-kuin-syntax",
     "displayName": "Kuin syntax",
     "description": "",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "publisher": "konosumi",
     "icon": "images/logo_kuin.png",
     "engines": {
